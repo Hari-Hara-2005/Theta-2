@@ -1,13 +1,144 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.slick-slide>div{
+    margin: 0 2px;
+    padding: 10px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+
+
+body {margin:0;height:2000px;}
+
+.icon-bar {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
 }
+
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+ 
+}
+
+.icon-bar a:hover {
+  background-color: #000;
+ 
+}
+
+.facebook {
+  background: #222831;
+  color: white;
+  
+border: white;
+border: 2px;
+}
+
+.twitter {
+  background: #222831;
+  color: white;
+}
+
+.google {
+  background: #222831;
+  color: white;
+}
+
+.linkedin {
+  background: #222831;
+  color: white;
+}
+
+.youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.content {
+  margin-left: 75px;
+  font-size: 30px;
+}
+
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 120s linear infinite;
+}
+
+.box {
+  color: #fff; /* Text color */
+  text-shadow: 0 1px 0 #000; /* Text shadow for effect */
+
+  --border-angle: 0turn; /* Angle for animation */
+  --main-bg: conic-gradient(
+    from var(--border-angle),
+    #213,
+    #112 5%,
+    #112 60%,
+    #213 95%
+  );
+
+  border: solid 5px transparent;
+  border-radius: 2em; /* Border with rounded corners */
+
+  /* Gradient border effect */
+  --gradient-border: conic-gradient(
+    from var(--border-angle),
+    transparent 25%,
+    hsl(40, 75%, 40%),
+    rgb(224, 234, 240) 99%,
+    transparent
+  );
+
+  /* Background settings */
+  background: 
+    var(--main-bg) padding-box, /* Main background clipped to padding box */
+    var(--gradient-border) border-box, /* Gradient border background */
+    var(--main-bg) border-box; /* Duplicate background to fill border space */
+
+  background-position: center center;
+  background-size: cover;
+
+  /* Spin animation */
+  animation: bg-spin 3s linear infinite;
+}
+
+@keyframes bg-spin {
+  to {
+    --border-angle: 1turn; /* Rotate the gradient over time */
+  }
+}
+
+.box:hover {
+  animation-play-state: paused; /* Pause the animation when hovered */
+}
+
+/* Define the CSS property globally */
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}
+form {
+  border: 3px solid #f1f1f1;
+}
+
